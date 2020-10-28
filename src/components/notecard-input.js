@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 
-class SubjectInput extends Component {
+class NoteCardInput extends Component {
     state = {
-        name: ""
+        term: "",
+        definition: ""
     }
 
     render() {
@@ -12,7 +13,11 @@ class SubjectInput extends Component {
                     <input 
                     type="text"
 
-                    value={this.state.name} />
+                    value={this.state.term} />
+                    <input
+                    type="text"
+
+                    value={this.state.definition} />
                     <input type="submit" />
                 </form>
             </div>
@@ -20,4 +25,4 @@ class SubjectInput extends Component {
     }
 }
 
-export default SubjectInput
+export default NoteCardInput

@@ -5,13 +5,24 @@ class SubjectInput extends Component {
         name: ""
     }
 
+    handleChange = (e) => {
+        this.setState({
+            name: e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+
+    }
+
     render() {
         return(
             <div>
-                <form>
+                <form onSubmit={(e) => this.handleSubmit(e)}>
                     <input 
                     type="text"
-
+                    onChange={(e) => this.handleChange(e)}
                     value={this.state.name} />
                     <input type="submit" />
                 </form>

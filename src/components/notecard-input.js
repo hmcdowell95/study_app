@@ -6,17 +6,30 @@ class NoteCardInput extends Component {
         definition: ""
     }
 
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+
+    }
+
     render() {
         return(
             <div>
-                <form>
+                <form onSubmit={(e) => this.handleSubmit(e)}>
                     <input 
                     type="text"
-
+                    name="term"
+                    onChange={(e) => this.handleChange(e)}
                     value={this.state.term} />
                     <input
                     type="text"
-
+                    name="definition"
+                    onChange={(e) => this.handleChange(e)}
                     value={this.state.definition} />
                     <input type="submit" />
                 </form>

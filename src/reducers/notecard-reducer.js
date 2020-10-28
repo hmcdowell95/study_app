@@ -10,3 +10,5 @@ function notecardReducer(state = {notes: [], loading: false}, action) {
             return state;
     }
 }
+
+export default notecardReducer

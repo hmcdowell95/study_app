@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
+import SubjectContainer from './containers/subject-container';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <h1>Harley needs to make more components</h1>
-      </div>
+      <Router>
+        <div>
+          <Route path='/subjects' render={() => <SubjectContainer/>} />
+        </div>
+      </Router>
     )
   }
 }

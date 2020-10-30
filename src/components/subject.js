@@ -5,8 +5,8 @@ class Subject extends Component {
     render() {
         return(
             <div>
-                <NoteCardContainer />
-                {/* put props in container */}
+                <h2>{this.props.subjects.find(s => s.id === this.props.match.params.id).name}</h2>
+                <NoteCardContainer subjectId={this.props.match.params.id} />
             </div>
         )
     }

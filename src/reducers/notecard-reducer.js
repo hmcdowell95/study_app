@@ -1,9 +1,9 @@
-import uuid from 'uuid';
+import cuid from 'cuid';
 
 function notecardReducer(state = {notes: [], subjects: [], loading: false}, action) {
     switch (action.type) {
         case "ADD_NOTE":
-            let note = Object.assign({id: uuid()}, action.note)
+            let note = Object.assign({id: cuid()}, action.note)
             return {
                 ...state,
                 notes: [...state.notes, note],
@@ -11,7 +11,7 @@ function notecardReducer(state = {notes: [], subjects: [], loading: false}, acti
             }
         case "ADD_SUBJECT":
             let sub = {
-                id: uuid(),
+                id: cuid(),
                 name: action.subject.name
             }
             return {

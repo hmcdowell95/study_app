@@ -13,7 +13,8 @@ class SubjectInput extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-
+        this.props.add(this.state)
+        this.setState({name: ""})
     }
 
     render() {

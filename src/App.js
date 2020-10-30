@@ -7,7 +7,8 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route path='/subjects' render={() => <SubjectContainer/>} />
+          <Route exact path="/" render={() => <h1>Welcome to my NoteCard Studying App!</h1>} />
+          <Route path='/subjects' render={routerProps => <SubjectContainer {...routerProps} />} />
         </div>
       </Router>
     )

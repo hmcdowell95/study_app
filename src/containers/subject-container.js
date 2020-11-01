@@ -4,8 +4,13 @@ import {Route} from 'react-router-dom';
 import SubjectInput from '../components/subject-input';
 import Subject from '../components/subject';
 import {Link} from 'react-router-dom';
+import {addSubject, fetchSubjects} from '../actions/subject-action';
 
 class SubjectContainer extends Component {
+
+    componentDidMount() {
+        this.props.fetchSubjects()
+    };
 
 renderSubjects = () => {return this.props.subjects.map(s => 
     <p><Link key={s.id} to={`/subjects/${s.id}`}>{s.name}</Link></p>)};
@@ -24,11 +29,13 @@ renderSubjects = () => {return this.props.subjects.map(s =>
 }
 
 const mapStateToProps = state => {
-    return {subjects: state.subjects}
+    return {subjects: state.subjects,
+    loading: state.loading}
 }
 
 const mapDispatchToProps = d => ({
-    addSubject: data => d({type: "ADD_SUBJECT", subject: data})
+    addSubject: data => d(addSubject(data)),
+    fetchSubjects: () => d(fetchSubjects())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SubjectContainer)

@@ -19,5 +19,5 @@ class SubjectsController < ApplicationController
         subject = Subject.find(params[:id])
         subject.destroy
     end
-    
+
 end

@@ -15,6 +15,7 @@ class SubjectInput extends Component {
         e.preventDefault()
         this.props.add(this.state)
         this.setState({name: ""})
+        window.location.reload()
     }
 
     render() {

@@ -10,13 +10,21 @@ function notecardReducer(state = {notes: [], subjects: [], loading: false}, acti
                 loading: false
             }
         case "ADD_SUBJECT":
-            let sub = {
-                id: cuid(),
-                name: action.subject.name
-            }
             return {
                 ...state,
-                subjects: [...state.subjects, sub],
+                subjects: action.subject,
+                loading: false
+            }
+        case "LOAD_SUBJECTS":
+            return {
+                ...state,
+                subjects: [...state.subjects],
+                loading: true
+            }
+        case "ADD_SUBJECTS":
+            return {
+                ...state,
+                subjects: action.subjects,
                 loading: false
             }
         default: 

@@ -17,7 +17,7 @@ class NoteCardInput extends Component {
         let note = {
             term: this.state.term,
             definition: this.state.definition,
-            subjectId: this.props.subjectId
+            subject_id: this.props.subjectId
         }
         this.props.add(note)
         this.setState({

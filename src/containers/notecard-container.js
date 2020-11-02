@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import NoteCardInput from '../components/notecard-input';
 import NoteCard from '../components/notecard';
+import { addNote} from '../actions/subject-action';
 
 class NoteCardContainer extends Component {
 
     renderNotes = () => {
-        let notes = this.props.notecards.filter(n => n.subjectId === this.props.subjectId);
-        return notes.map(n => <NoteCard note={n} /> )
+        let notes = this.props.notecards.filter(n => n.subject_id === this.props.subjectId);
+        return notes.map(n => <NoteCard key={n.id} note={n} /> )
     }
     
     render() {
@@ -25,7 +26,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = d => ({
-    addNote: data => d({type: "ADD_NOTE", note: data})
+    addNote: data => d(addNote(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(NoteCardContainer)

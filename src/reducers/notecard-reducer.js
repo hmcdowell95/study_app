@@ -1,5 +1,3 @@
-import cuid from 'cuid';
-
 function notecardReducer(state = {notes: [], subjects: [], loading: false}, action) {
     switch (action.type) {
         case "ADD_NOTE":
@@ -17,7 +15,7 @@ function notecardReducer(state = {notes: [], subjects: [], loading: false}, acti
         case "ADD_NOTES":
             return {
                 ...state,
-                notes: [action.notes],
+                notes: action.notes,
                 loading: false
             }
         case "ADD_SUBJECT":

@@ -4,13 +4,14 @@ import {Route} from 'react-router-dom';
 import SubjectInput from '../components/subject-input';
 import Subject from '../components/subject';
 import {Link} from 'react-router-dom';
-import {addSubject, fetchSubjects} from '../actions/subject-action';
+import {addSubject, fetchSubjects, fetchNotes} from '../actions/subject-action';
 import {NavLink} from 'react-router-dom';
 
 class SubjectContainer extends Component {
 
     componentDidMount() {
-        this.props.fetchSubjects()
+        this.props.fetchSubjects();
+        this.props.fetchNotes()
     };
 
 renderSubjects = () => {return this.props.subjects.map(s => 
@@ -36,7 +37,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = d => ({
     addSubject: data => d(addSubject(data)),
-    fetchSubjects: () => d(fetchSubjects())
+    fetchSubjects: () => d(fetchSubjects()),
+    fetchNotes: () => d(fetchNotes())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SubjectContainer)

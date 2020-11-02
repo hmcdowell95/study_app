@@ -9,7 +9,7 @@ class Subject extends Component {
         return(
             <div>
                 <h2>{this.renderSubject() ? this.renderSubject().name: null}</h2>
-                <NoteCardContainer subjectId={this.props.match.params.id} />
+                <NoteCardContainer subjectId={parseInt(this.props.match.params.id)} />
             </div>
         )
     }

@@ -28,7 +28,7 @@ export function addSubject(data) {
 export function fetchNotes() {
     return (dispatch) => {
         dispatch({type: "LOAD_NOTES"});
-        fetch(`${BASE_URL}/notes`)
+        fetch(`${BASE_URL}/notecards`)
         .then(r => r.json())
         .then(notes => dispatch({type: "ADD_NOTES", notes: notes}))
     }
@@ -44,7 +44,7 @@ export function addNote(data) {
             },
             body: JSON.stringify(data)
         };
-        fetch(`${BASE_URL}/notes`, config)
+        fetch(`${BASE_URL}/notecards`, config)
         .then(r => r.json())
         .then(json => dispatch({type: 'ADD_NOTE', note: json}));
     }

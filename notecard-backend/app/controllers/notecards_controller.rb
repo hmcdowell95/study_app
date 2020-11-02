@@ -1,7 +1,7 @@
 class NotecardsController < ApplicationController
     def index
         notecards = Notecard.all 
-        render json: notecards, only: [:id, :term, :definition]
+        render json: notecards, only: [:id, :term, :definition, :subject_id]
     end
 
     def create

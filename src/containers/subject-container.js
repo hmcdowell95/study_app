@@ -5,6 +5,7 @@ import SubjectInput from '../components/subject-input';
 import Subject from '../components/subject';
 import {Link} from 'react-router-dom';
 import {addSubject, fetchSubjects} from '../actions/subject-action';
+import {NavLink} from 'react-router-dom';
 
 class SubjectContainer extends Component {
 
@@ -17,10 +18,11 @@ renderSubjects = () => {return this.props.subjects.map(s =>
 
     render() {
         return(
-            <div>list of subjects with links. {JSON.stringify(this.props.subjects)}
-                <SubjectInput add={this.props.addSubject} />
-                {this.renderSubjects()}
-                <Route exact path={this.props.match.url} render={() => <div>test</div>} />
+            <div><NavLink style={{margin: "10px"}} to="/">Home</NavLink>
+                <NavLink style={{margin: '10px'}} to="/subjects">Subjects</NavLink><br/>
+                list of subjects with links. {JSON.stringify(this.props.subjects)}
+                <Route exact path={this.props.match.url} render={() => <div><SubjectInput add={this.props.addSubject} /><br/>
+                Subjects: <br/>{this.renderSubjects()}</div>} />
                 <Route exact path={`${this.props.match.url}/:id`} 
                 render={routerProps => <Subject {...routerProps} subjects={this.props.subjects} /> } />
             </div>

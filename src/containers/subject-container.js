@@ -20,7 +20,6 @@ renderSubjects = () => {return this.props.subjects.map(s =>
         return(
             <div><NavLink style={{margin: "10px"}} to="/">Home</NavLink>
                 <NavLink style={{margin: '10px'}} to="/subjects">Subjects</NavLink><br/>
-                list of subjects with links. {JSON.stringify(this.props.subjects)}
                 <Route exact path={this.props.match.url} render={() => <div><SubjectInput add={this.props.addSubject} /><br/>
                 Subjects: <br/>{this.renderSubjects()}</div>} />
                 <Route exact path={`${this.props.match.url}/:id`} 

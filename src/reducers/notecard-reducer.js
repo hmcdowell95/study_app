@@ -12,7 +12,7 @@ function notecardReducer(state = {notes: [], subjects: [], loading: false}, acti
         case "ADD_SUBJECT":
             return {
                 ...state,
-                subjects: action.subject,
+                subjects: state.subjects.concat(action.subject),
                 loading: false
             }
         case "LOAD_SUBJECTS":

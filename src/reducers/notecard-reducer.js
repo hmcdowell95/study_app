@@ -3,10 +3,21 @@ import cuid from 'cuid';
 function notecardReducer(state = {notes: [], subjects: [], loading: false}, action) {
     switch (action.type) {
         case "ADD_NOTE":
-            let note = Object.assign({id: cuid()}, action.note)
             return {
                 ...state,
-                notes: [...state.notes, note],
+                notes: state.notes.concat(action.note),
+                loading: false
+            }
+        case "LOAD_NOTES":
+            return {
+                ...state,
+                notes: [...state.notes],
+                loading: true
+            }
+        case "ADD_NOTES":
+            return {
+                ...state,
+                notes: [action.notes],
                 loading: false
             }
         case "ADD_SUBJECT":

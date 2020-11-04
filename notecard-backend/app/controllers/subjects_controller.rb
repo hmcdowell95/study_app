@@ -12,7 +12,7 @@ class SubjectsController < ApplicationController
     def update
         subject = Subject.find(params[:id])
         subject.update(name: params[:name])
-        render json: subject, only: [:id, name]
+        render json: subject, only: [:id, :name]
     end
 
     def destroy

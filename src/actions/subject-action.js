@@ -49,3 +49,19 @@ export function addNote(data) {
         .then(json => dispatch({type: 'ADD_NOTE', note: json}));
     }
 }
+
+export function updateSubject(data) {
+    return (dispatch) => {
+        dispatch({type: 'LOAD_SUBJECTS'});
+        const config = {method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(data)
+        };
+        fetch(`${BASE_URL}/subjects/${data.id}`, config)
+        .then(r => r.json())
+        .then(json => dispatch({type: 'EDIT_SUBJECT', subject: json}))
+    }
+}

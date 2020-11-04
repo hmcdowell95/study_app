@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import NoteCardInput from '../components/notecard-input';
-import NoteCard from '../components/notecard';
+import NoteCardInput from '../components/notecard/notecard-input';
+import NoteCard from '../components/notecard/notecard';
 import { addNote} from '../actions/subject-action';
 
 class NoteCardContainer extends Component {

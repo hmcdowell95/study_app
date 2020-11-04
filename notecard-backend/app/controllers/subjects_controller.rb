@@ -17,6 +17,9 @@ class SubjectsController < ApplicationController
 
     def destroy
         subject = Subject.find(params[:id])
+        subject.notecards.each do |x| 
+            x.destroy
+        end
         subject.destroy
     end
 

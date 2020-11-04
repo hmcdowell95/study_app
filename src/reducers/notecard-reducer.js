@@ -43,6 +43,18 @@ function notecardReducer(state = {notes: [], subjects: [], loading: false}, acti
                 subjects: x.concat(action.subject),
                 loading: false
             }
+        case "DELETE_SUBJECT":
+            return {
+                ...state,
+                subjects: state.subjects.filter(s => s.id !== action.subject),
+                loading: false
+            }
+        case "DELETE_NOTE":
+            return {
+                ...state,
+                notes: state.notes.filter(n => n.id !== action.note),
+                loading: false
+            }
         default: 
             return state;
     }

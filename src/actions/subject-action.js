@@ -65,3 +65,31 @@ export function updateSubject(data) {
         .then(json => dispatch({type: 'EDIT_SUBJECT', subject: json}))
     }
 }
+
+export function deleteSubject(data) {
+    return (dispatch) => {
+        dispatch({type: 'LOAD_SUBJECTS'});
+        const config = {method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        };
+        fetch(`${BASE_URL}/subjects/${data}`, config)
+        .then(() => dispatch({type: "DELETE_SUBJECT", subject: data}))
+    }
+}
+
+export function deleteNote(data) {
+    return (dispatch) => {
+        dispatch({type: 'LOAD_NOTES'});
+        const config = {method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        };
+        fetch(`${BASE_URL}/notecards/${data}`, config)
+        .then(() => dispatch({type: "DELETE_NOTE", note: data}))
+    }
+}

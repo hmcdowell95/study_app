@@ -8,6 +8,10 @@ class EditSubject extends Component {
         redirect: null
     }
 
+    renderSubject = () => {
+        return this.props.subjects.find(x => x.id === parseInt(this.props.match.params.id))
+    }
+
     handleChange = (e) => {
         this.setState({
             name: e.target.value
@@ -21,12 +25,18 @@ class EditSubject extends Component {
         this.setState({redirect: "/subjects"})
     }
 
+    onDelete = () => {
+        this.props.delete(this.state.id)
+        this.setState({redirect: "/subjects"})
+    }
+
     render() {
         if (this.state.redirect) {
             return <Redirect to={this.state.redirect} />
         }
         return(
             <div>
+                Currently: {this.renderSubject() ? this.renderSubject().name: null}
                 <form onSubmit={(e) => this.handleSubmit(e)}>
                     Edit Subject: <input 
                     type="text"
@@ -34,6 +44,7 @@ class EditSubject extends Component {
                     value={this.state.name} />
                     <input type="submit" />
                 </form>
+                <button onClick={() => this.onDelete()}>Delete</button>
             </div>
         )
     }

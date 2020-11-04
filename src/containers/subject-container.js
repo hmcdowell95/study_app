@@ -4,7 +4,7 @@ import {Route} from 'react-router-dom';
 import SubjectInput from '../components/subject/subject-input';
 import Subject from '../components/subject/subject';
 import {Link} from 'react-router-dom';
-import {addSubject, fetchSubjects, fetchNotes, updateSubject} from '../actions/subject-action';
+import {addSubject, fetchSubjects, fetchNotes, updateSubject, deleteSubject} from '../actions/subject-action';
 import {NavLink} from 'react-router-dom';
 import EditSubject from '../components/subject/edit-subject';
 
@@ -27,21 +27,22 @@ renderSubjects = () => {return this.props.subjects.map(s =>
                 <Route exact path={`${this.props.match.url}/:id`} 
                 render={routerProps => <Subject {...routerProps} subjects={this.props.subjects} /> } />
                 <Route exact path={`${this.props.match.url}/:id/edit`}
-                render={routerProps => <EditSubject {...routerProps} edit={this.props.updateSubject} />} />
+                render={routerProps => <EditSubject {...routerProps} subjects={this.props.subjects} edit={this.props.updateSubject} delete={this.props.deleteSubject} />} />
             </div>
         )
     }
 }
 
 const mapStateToProps = state => {
-    return {subjects: state.subjects}
+    return state
 }
 
 const mapDispatchToProps = d => ({
     addSubject: data => d(addSubject(data)),
     fetchSubjects: () => d(fetchSubjects()),
     fetchNotes: () => d(fetchNotes()),
-    updateSubject: data => d(updateSubject(data))
+    updateSubject: data => d(updateSubject(data)),
+    deleteSubject: data => d(deleteSubject(data))  
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SubjectContainer)

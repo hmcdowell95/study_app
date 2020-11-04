@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
+import NoteCardContainer from '../../containers/notecard-container';
 
 class EditSubject extends Component {
     state = {
@@ -45,6 +46,7 @@ class EditSubject extends Component {
                     <input type="submit" />
                 </form>
                 <button onClick={() => this.onDelete()}>Delete</button>
+                <NoteCardContainer subjectId={this.state.id} router={this.props.match.url} />
             </div>
         )
     }

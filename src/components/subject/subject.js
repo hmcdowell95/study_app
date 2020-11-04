@@ -11,8 +11,8 @@ class Subject extends Component {
         return(
             <div>
                 <h2>{this.renderSubject() ? this.renderSubject().name: null}</h2>
-                <Link to={`/subjects/${id}/edit`}>EDIT</Link>
-                <NoteCardContainer subjectId={id} />
+                <Link to={`/subjects/${id}/edit`}>EDIT Subject</Link>
+                <NoteCardContainer subjectId={id} router={this.props.match.url} />
             </div>
         )
     }

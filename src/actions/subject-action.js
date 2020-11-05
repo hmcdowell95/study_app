@@ -93,3 +93,19 @@ export function deleteNote(data) {
         .then(() => dispatch({type: "DELETE_NOTE", note: data}))
     }
 }
+
+export function editNote(data) {
+    return (dispatch) => {
+        dispatch({type: 'LOAD_NOTES'});
+        const config ={method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(data)
+        };
+        fetch(`${BASE_URL}/notecards/${data.id}`, config)
+        .then(r => r.json())
+        .then(json => dispatch({type: "EDIT_NOTE", note: json}))
+    }
+}

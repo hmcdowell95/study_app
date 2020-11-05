@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import NoteCardInput from '../components/notecard/notecard-input';
 import NoteCard from '../components/notecard/notecard';
 import { addNote} from '../actions/subject-action';
-import {Route} from 'react-router-dom';
 
 class NoteCardContainer extends Component {
 
@@ -15,8 +14,8 @@ class NoteCardContainer extends Component {
     render() {
         return (
             <div class="grid">
-                <Route exact path={this.props.router} render={() => <NoteCardInput add={this.props.addNote} subjectId={this.props.subjectId} />} />
-                <Route exact path={this.props.router}>{this.renderNotes()}</Route>
+                <NoteCardInput add={this.props.addNote} subjectId={this.props.subjectId} />
+                {this.renderNotes()}
             </div>
         )
     }

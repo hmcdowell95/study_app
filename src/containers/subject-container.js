@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Route, Link, NavLink} from 'react-router-dom';
 import SubjectInput from '../components/subject/subject-input';
 import Subject from '../components/subject/subject';
-import {addSubject, fetchSubjects, fetchNotes, updateSubject, deleteSubject} from '../actions/subject-action';
+import {addSubject, fetchSubjects, fetchNotes, updateSubject, deleteSubject, editNote, deleteNote} from '../actions/subject-action';
 import EditSubject from '../components/subject/edit-subject';
 import EditNoteCard from '../components/notecard/edit-notecard';
 
@@ -31,7 +31,8 @@ renderSubjects = () => {return this.props.subjects.map(s =>
                 notes={this.props.notes}
                 edit={this.props.updateSubject} 
                 delete={this.props.deleteSubject} />} />
-                <Route exact path={`${this.props.match.url}/notecards/:id/edit`} render={routerProps => <EditNoteCard {...routerProps} notes={this.props.notes} />} />
+                <Route exact path={`${this.props.match.url}/notecards/:id/edit`} render={routerProps => 
+                <EditNoteCard {...routerProps} notes={this.props.notes} edit={this.props.editNote} delete={this.props.deleteNote} />} />
             </div>
         )
     }
@@ -46,7 +47,9 @@ const mapDispatchToProps = d => ({
     fetchSubjects: () => d(fetchSubjects()),
     fetchNotes: () => d(fetchNotes()),
     updateSubject: data => d(updateSubject(data)),
-    deleteSubject: data => d(deleteSubject(data))  
+    deleteSubject: data => d(deleteSubject(data)),
+    editNote: data => d(editNote(data)),
+    deleteNote: data => d(deleteNote(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SubjectContainer)

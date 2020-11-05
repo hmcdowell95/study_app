@@ -28,7 +28,7 @@ class NoteCardInput extends Component {
 
     render() {
         return(
-            <div><h3>New Note</h3>
+            <div style={{border: "1px solid red"}}><h3>New Note</h3>
                 <form onSubmit={(e) => this.handleSubmit(e)}>
                     Term: <input 
                     type="text"

@@ -4,7 +4,6 @@ import NoteCardInput from '../components/notecard/notecard-input';
 import NoteCard from '../components/notecard/notecard';
 import { addNote} from '../actions/subject-action';
 import {Route} from 'react-router-dom';
-import EditNoteCard from '../components/notecard/edit-notecard';
 
 class NoteCardContainer extends Component {
 
@@ -17,7 +16,6 @@ class NoteCardContainer extends Component {
         return (
             <div class="grid">
                 <Route exact path={this.props.router} render={() => <NoteCardInput add={this.props.addNote} subjectId={this.props.subjectId} />} />
-                <Route exact path='/notecards/:id/edit' render={<EditNoteCard notes={this.props.notecards} />} />
                 <Route exact path={this.props.router}>{this.renderNotes()}</Route>
             </div>
         )

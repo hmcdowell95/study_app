@@ -10,7 +10,7 @@ class NoteCard extends Component {
         else {this.setState({...this.state, definition: ""})}
     }
 
-    onEdit = () => this.setState({redirect: `/notecards/${this.props.note.id}`})
+    onEdit = () => this.setState({redirect: `/subjects/notecards/${this.props.note.id}/edit`})
 
     render() {
         if (this.state.redirect) {

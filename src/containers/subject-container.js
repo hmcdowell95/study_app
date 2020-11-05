@@ -5,6 +5,7 @@ import SubjectInput from '../components/subject/subject-input';
 import Subject from '../components/subject/subject';
 import {addSubject, fetchSubjects, fetchNotes, updateSubject, deleteSubject} from '../actions/subject-action';
 import EditSubject from '../components/subject/edit-subject';
+import EditNoteCard from '../components/notecard/edit-notecard';
 
 class SubjectContainer extends Component {
 
@@ -30,6 +31,7 @@ renderSubjects = () => {return this.props.subjects.map(s =>
                 notes={this.props.notes}
                 edit={this.props.updateSubject} 
                 delete={this.props.deleteSubject} />} />
+                <Route exact path={`${this.props.match.url}/notecards/:id/edit`} render={routerProps => <EditNoteCard {...routerProps} notes={this.props.notes} />} />
             </div>
         )
     }

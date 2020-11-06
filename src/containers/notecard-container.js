@@ -10,7 +10,7 @@ class NoteCardContainer extends Component {
         let notes = this.props.notecards.filter(n => n.subject_id === this.props.subjectId);
         return notes.map(n => <NoteCard key={n.id} note={n} router={this.props.router} /> )
     }
-    
+    // add reverse render
     render() {
         return (
             <div class="grid">

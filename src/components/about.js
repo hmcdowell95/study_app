@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../containers/NavBar';
+import Instructions from './instructions';
 
 const About = () => 
     <div>
@@ -11,6 +12,7 @@ const About = () =>
             what the name of the formula I used is, also I couldn't tell you what a binomial is but I could solve them. I suck at terminology. 
             I think I'm pretty good at solving problems in code but I probably couldn't name the method I used. So much like flashcards I thought this might help me.
         </p>
+        <Instructions/>
     </div>;
 
 export default About

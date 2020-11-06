@@ -1,7 +1,9 @@
 import React from 'react';
+import NavBar from '../containers/NavBar';
 
 const About = () => 
     <div>
+        <NavBar />
         <h3>NoteCard App</h3>
         <p>created by: Harley McDowell</p><br/>
         <p>I had the idea of this app for awhile now. While learning code I ran into the same problem I had with Math. 

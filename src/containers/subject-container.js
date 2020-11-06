@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Route, Link, NavLink} from 'react-router-dom';
+import {Route, Link} from 'react-router-dom';
 import SubjectInput from '../components/subject/subject-input';
 import Subject from '../components/subject/subject';
 import {addSubject, fetchSubjects, fetchNotes, updateSubject, deleteSubject, editNote, deleteNote} from '../actions/subject-action';
 import EditSubject from '../components/subject/edit-subject';
 import EditNoteCard from '../components/notecard/edit-notecard';
+import NavBar from '../containers/NavBar';
 
 class SubjectContainer extends Component {
 
@@ -19,9 +20,7 @@ renderSubjects = () => {return this.props.subjects.map(s =>
 
     render() {
         return(
-            <div><NavLink style={{margin: "10px"}} to="/">Home</NavLink>
-                <NavLink style={{margin: '10px'}} to="/subjects">Subjects</NavLink>
-                <NavLink style={{margin: '10px'}} to="/about">About</NavLink><br/>
+            <div><NavBar/>
                 <Route exact path={this.props.match.url} render={() => <div><SubjectInput add={this.props.addSubject} /><br/>
                 Subjects: <br/>{this.renderSubjects()}</div>} />
                 <Route exact path={`${this.props.match.url}/:id`} 

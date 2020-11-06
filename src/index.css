@@ -18,3 +18,8 @@ code {
   grid-gap: 10px;
   border: 5px solid black;
 }
+
+p {
+  margin: auto;
+  width: 800px;
+}

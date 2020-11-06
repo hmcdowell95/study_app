@@ -45,7 +45,7 @@ class EditSubject extends Component {
                     value={this.state.name} />
                     <input type="submit" />
                 </form>
-                <button onClick={() => this.onDelete()}>Delete</button>
+                <button onClick={() => this.onDelete()}>Delete Subject</button>
                 <NoteCardContainer subjectId={this.state.id} router={this.props.match.url} />
             </div>
         )

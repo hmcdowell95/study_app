@@ -27,7 +27,7 @@ export function addSubject(data) {
 
 export function fetchNotes() {
     return (dispatch) => {
-        dispatch({type: "LOAD_NOTES"});
+        dispatch({type: "LOAD_NOTES"})
         fetch(`${BASE_URL}/notecards`)
         .then(r => r.json())
         .then(notes => dispatch({type: "ADD_NOTES", notes: notes}))

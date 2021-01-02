@@ -7,6 +7,8 @@ import {connect} from 'react-redux';
 import NoteCards from './components/notecard/notecards';
 
 class App extends Component {
+
+
   render() {
     return (
       <Router>
